@@ -2,13 +2,14 @@
 @import url(codemirror/codemirror.css);
 
 body{
-	font-family: "Roboto", "Arial", sans-serif;
+	font-family: "Roboto Lt", "Roboto", "Ubuntu", "Arial", sans-serif;
+	font-weight: 200;
 	margin: 0px;
 }
 
 h1, h2, h3, h4{
 	margin: 10px 0;
-	font-family: "Overlock", serif;
+	font-family: "Overlock", "Ubuntu", serif;
 }
 
 .content{
