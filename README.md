@@ -4,6 +4,8 @@ A tiny wiki powered by NodeJS
 
 p.s this is probably one of the only NodeJS things you can run under apache
 
+[MIT License](http://www.tldrlegal.com/l/MIT)
+
 ## Setup
 
 Requirements: NodeJS
