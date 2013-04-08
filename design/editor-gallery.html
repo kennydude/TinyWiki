@@ -1,0 +1,16 @@
+<div class="gallery">
+	{% for image in files %}
+	<div class="item">
+		<img src="{{root}}images/{{image}}" />
+		<a data-page="{{image}}" href="#" class="delete linkPage">
+			Use
+		</a>
+	</div>
+	{% endfor %}
+</div>
+<script type="text/javascript">
+	$(".linkPage").click(function(){
+		hideLB();
+		insertText("![Title]("+ $(this).data("page") +")");
+	});
+</script>

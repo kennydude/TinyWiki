@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Page List</h1>
+{% if get.deleted == "true" %}
+<div class="message">
+	Page was deleted
+</div>
+{% endif %}
+<ul>
+	{% for page in files %}
+	<li><a href="{{page}}">{{page}}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

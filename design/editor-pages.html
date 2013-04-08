@@ -1,0 +1,12 @@
+<h3>Insert Link to Page</h3>
+<ul>
+	{% for page in files %}
+	<li><a href="#" class="linkPage" data-page="{{page}}">{{page}}</a></li>
+	{% endfor %}
+</ul>
+<script type="text/javascript">
+	$(".linkPage").click(function(){
+		hideLB();
+		insertText("[Link Title]("+ $(this).data("page") +")");
+	});
+</script>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TinyWiki</title>
+
+	<link rel="stylesheet" href="{{root}}design/main.css">
+</head>
+<body>
+	<div class="header">
+		<div class="content">
+			<span class="right">
+				<a href="#" class="more" title="More">
+					...
+				</a>
+			</span>
+			<a class="home" href="{{root}}">{% include "home-icon.html" %}</a>
+			{% block toolbar %}{% endblock %}
+		</div>
+	</div>
+	<div class="content">
+		<div class="moreBox hide">
+			<a href="{{root}}__gallery">
+				Image Gallery
+			</a>
+			<a href="{{root}}__pages">
+				Page List
+			</a>
+			<a href="{{root}}__about">
+				About
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<canvas id="outline" width="100" height="400"></canvas>
+	<div class="content real">
+		{% block content %}{% endblock %}
+	</div>
+	
+	<script type="text/javascript">var root = "{{root}}";var page = "{{wikipage}}";</script>
+	<script type="text/javascript" src="{{root}}design/js/jquery.min.js"></script>
+
+	<!-- Outline -->
+	<script type="text/javascript" src="{{root}}design/js/modernizr.min.js"></script>
+	<script type="text/javascript" src="{{root}}design/js/fracs.js"></script>
+	<script type="text/javascript" src="{{root}}design/js/jquery.outline.js"></script>
+
+	<!-- Editor -->
+	<script type="text/javascript" src="{{root}}design/js/jquery.autogrow-textarea.js"></script>
+	<script type="text/javascript" src="{{root}}design/js/jquery.filedrop.js"></script>
+	<script type="text/javascript" src="{{root}}design/codemirror/codemirror.js"></script>
+	<script type="text/javascript" src="{{root}}design/codemirror/markdown.js"></script>
+
+	<!-- Global -->
+	<script type="text/javascript" src="{{root}}design/js/page.js"></script>
+
+	{%block scripts%}{%endblock%}
+	<div class="lbB"></div>
+	<div class="lbC"><button class="closeButton right">x</button><div class="c"></div></div>
+</body>
+</html>

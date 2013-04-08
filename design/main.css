@@ -1,0 +1,223 @@
+@import url(http://fonts.googleapis.com/css?family=Overlock|Roboto);
+@import url(codemirror/codemirror.css);
+
+body{
+	font-family: "Roboto", "Arial", sans-serif;
+	margin: 0px;
+}
+
+h1, h2, h3, h4{
+	margin: 10px 0;
+	font-family: "Overlock", serif;
+}
+
+.content{
+	margin: 0 auto;
+	width: 800px;
+}
+
+.hide{ display: none; }
+.moreBox{
+	text-align: right;
+	background: #222;
+	padding: 15px;
+	color: #FFF; font-size: 12px;
+}
+.moreBox a{
+	padding: 15px;
+	color: #FFF;
+	font-size: 12px;
+}
+.moreBox a:hover{
+	background: #111;
+}
+.more{
+	text-decoration: none;
+}
+.message{
+	background: #FFFF99;
+	padding: 5px;
+	margin: 10px 0;
+	font-size: 12px;
+}
+
+.gallery .delete{
+	position: relative;
+	top: -40px;
+	left: 10px;
+	font-size: 12px;
+	background: #FFF;
+	padding: 4px;
+	border-radius: 5px 5px;
+	opacity: 0;
+}
+.gallery .item:hover .delete{
+	opacity: 1;
+}
+.gallery .item{
+	width: 266px;
+	float: left;
+}
+.lbC .gallery{
+	width: 60px;
+}
+.details{
+	text-align: right;
+	color: #333;
+	padding: 10px 0;
+	font-size: 12px;
+}
+.gallery img{
+	width: 100%;
+}
+
+.right{ float: right; }
+#load{opacity: 0; }
+
+@media(max-width: 800px){
+	.content{
+		width: 100%;
+	}
+	.content.real > *{
+		padding: 10px;
+	}
+	#outline, #gutter{
+		display: none;
+	}
+}
+
+#appSaveStatus{ text-decoration: none; }
+
+@media print{
+	.header,.message{
+		display: none;
+	}
+	.content{
+		font-size: 12px;
+	}
+	p, h1, h2, h3, h4, h5{
+		margin: 2px 0px;
+	}
+}
+
+.header{
+	background: #333;
+	color: #FFF;
+	height: 34px;
+}
+.header a{
+	padding: 4px;
+	float: left;
+}
+.header a{ color: #FFF; width: 30px; text-align: center; }
+
+.current{
+	background: #111;
+}
+.home{
+	margin-right: 5px;
+	padding-right: 5px;
+	border-right: 1px solid #DDD;
+}
+.icon svg{
+	fill: #FFF !important;
+}
+.editor_gutter{
+	width: 20px;
+	text-align: center;
+}
+.egv{
+	line-height: 1.8em;
+	text-align: center;
+}
+.previewBox{
+	position: absolute;
+	top: -100px;
+	padding: 2px;
+	border: 1px solid #CCC;
+	left: 30px;
+	width: 90px;
+}
+.previewBox img{
+	max-width: 100%;
+}
+#theEditor{
+	width: 100%;
+	height: 400px;
+	font-family: monospace;
+	line-height: 18px;
+	font-size: 14px;
+	overflow: hidden;
+	padding: 0px;
+	border: 0px;
+	outline: 0;
+}
+.controls{
+	position: fixed;
+	z-index: 99;
+	bottom: 0px;
+	background: #FFF;
+	padding: 10px;
+	left: 0; right: 0;
+}
+#uploadfile{
+	display: none;
+}
+
+#outline{
+	float: right;
+	margin-top: 5px;
+	right: 0;
+	margin-right: 10px;
+	position: fixed;
+}
+.preview{
+	background: #EEE;
+	padding: 5px;
+}
+
+.clear{
+	clear: both;
+}
+
+.CodeMirror-wrap pre {
+	line-height: 1.8em;
+}
+
+.CodeMirror {
+height: auto;
+}
+.CodeMirror-scroll {
+overflow-y: hidden;
+overflow-x: auto;
+}
+
+abbr{
+	border-bottom: 1px #CCC dotted;
+	cursor: pointer;
+}
+
+/* Lightbox */
+.lbB{
+	background: #333;
+	opacity: 0.5;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;right: 0;bottom: 0;
+}
+.lbC{
+	position: fixed;
+	top: 100px;
+	width: 40%;
+	left: 30%;
+	padding: 10px;
+	height: 400px;
+	background: #FFF;
+	z-index: 101;
+}
+.lbC .c{
+	overflow-y: auto;
+	height: 390px;
+}
+.lbB, .lbC{ display: none; }

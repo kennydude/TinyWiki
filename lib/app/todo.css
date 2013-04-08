@@ -1,0 +1,22 @@
+.task{
+	padding: 5px;
+	border: 1px solid #CCC;
+	background: #EEE;
+	margin: 5px;
+}
+.task.done .text{
+	text-decoration: line-through;
+}
+.task.view .showOnEdit{display: none}
+.task .showOnEdit *{font-size: 12px;}
+.task.edit .hideOnEdit{ display: none; }
+.task .editbox{ padding: 5px; }
+.line{width:100%}
+input{
+	border: 1px solid #333;
+	outline: none;
+}
+.export{
+	width: 490px;
+	height: 380px;
+}

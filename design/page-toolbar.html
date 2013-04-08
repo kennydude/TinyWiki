@@ -1,0 +1,12 @@
+<a
+	title="View Page"
+	href="{{ root }}{{ wikipage }}"
+	class="{% if current == "view" %}current{% endif %} icon">
+		{% include "view-icon.html" %}
+</a>
+<a
+	title="Edit Page"
+	href="{{ root }}edit/{{ wikipage }}"
+	class="{% if current == "editor" %}current{% endif %} icon editIcon">
+		{% include "edit-icon.html" %}
+</a>

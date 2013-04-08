@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Confirm?</h1>
+<p>Are you sure you wish to delete this file? We cannot recover it once it has been deleted from the server</p>
+<p><img src="{{root}}/images/{{image}}"/></p>
+<p><a href="?file={{image}}&sure=true">Yes</a></p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block toolbar %}
+{% set current = "editor" %}
+{% include "page-toolbar.html" %}
+{% endblock %}
+{% block content %}
+<h1>Edit Page {{wikipage}}</h1>
+<form method="post" action="{{root}}edit/{{wikipage}}#preview">	
+	
+	<div class="previewBox"></div>
+	<textarea id="theEditor" name="contents">{{ contents }}</textarea>
+	<div class="clear"></div>
+
+	<div class="controls"><div class="content">
+		<span class="right">
+			<span id="load">uploading...</span>
+			<button id="image">upload image</button>
+			<button id="existImage">gallery</button>
+			<button id="link">link</button>
+		</span>
+		<input type="submit" name="action" value="save" />
+		<input type="submit" name="action" value="preview" />
+	</div></div>
+
+</form>
+<input type="file" id="uploadfile" />
+{% if preview %}
+<a id="preview"></a>
+	<h3>Preview</h3>
+	<div class="preview">
+		{{preview|raw}}
+	</div>
+{% endif %}
+<br/><br/><br/>
+{% endblock %}

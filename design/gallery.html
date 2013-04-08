@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Gallery</h1>
+{% if get.deleted == "true" %}
+<div class="message">
+	Image was deleted
+</div>
+{% endif %}
+<div class="gallery">
+	{% for image in files %}
+	<div class="item">
+		<img src="{{root}}images/{{image}}" />
+		<a href="__gallery_delete?file={{image}}" class="delete">
+			DELETE
+		</a>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

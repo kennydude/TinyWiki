@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Help</h1>
+<p>TinyWiki should work straight off without an issue, but if you're stuck, here's some pointers</p>
+<p><a href="{{root}}__syntax">We use Markdown. Here's the syntax</a></p>
+<h3>Limiations of this system</h3>
+<p>It's file based. No users</p>
+<p>You cannot have <strong>any</strong> pages named as follows</p>
+<ul>
+<li>app</li>
+<li>design</li>
+<li>images</li>
+<li>Anything beginning with __</li>
+</ul>
+<p>While nothing will break, you will only be able to edit and never ever view these pages</p>
+<p>Sorry :(</p>
+<h3>Apps</h3>
+<p>We have apps</p>
+<p>This means nice apps which use TinyWiki's infrastructure to work properly</p>
+<p>We've got one built-in</p>
+<p>Try making a new page with the text <code>[app todo]</code> and view it</p>
+<h4>I want to make one</h4>
+<p>Awesome. Just add <code>yourappname.js</code> to the lib/app folder</p>
+<p>Then add a page with <code>[app yourappname]</code></p>
+<p>Then write your JS file. We have jQuery already loaded (no UI)</p>
+<p>Some things to note though:</p>
+<ul>
+<li><code>#appData</code> contains the file contents of the file you wrote. Store your data here</li>
+<li><code>#appArea</code> is where you should store the DOM to your app (not required, but it's for neatness)</li>
+<li>When you have updated <code>#appData</code> with the file to replace, call <code>saveContents()</code> and the system will manage it all</li>
+<li>If you want your app to continue showing, the first line must <strong>always</strong> be the [app yourappname] def</li>
+<li>Want a lightbox? We have one <code>showLB("html string here");</code> and get rid of it with <code>hideLB();</code></li>
+</ul>
+{% endblock %}

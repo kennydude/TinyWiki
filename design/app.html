@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block toolbar %}
+{% set current = "view" %}
+{% include "page-toolbar.html" %}
+<a href="#" id="appSaveStatus" title="Save status">
+ok
+</a>
+{% endblock %}
+{% block content %}
+<textarea id="appData" class="hide">{{ contents|raw }}</textarea>
+<div id="appArea">
+
+</div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="{{root}}app/{{appname}}.js"></script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block toolbar %}
+{% set current = "view" %}
+{% include "page-toolbar.html" %}
+{% endblock %}
+{% block content %}
+<div class="details">
+	Reading time <abbr title="at 200 words per minute">~</abbr>{{time}} minutes. {{words}} words.
+</div>
+{% if get.saved == "true" %}
+<div class="message">
+	Page was saved
+</div>
+{% endif %}
+{{ contents|raw }}
+{% endblock %}

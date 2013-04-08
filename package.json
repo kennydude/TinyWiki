@@ -1,0 +1,11 @@
+{
+	"name" : "tinywiki",
+	"description" : "Tiny wiki",
+	"version": "0.0.1",
+	"dependencies" : {
+		"swig" : "*",
+		"formidable":"*",
+		"express":  "*",
+		"consolidate" : "*"
+	}
+}
