@@ -44,6 +44,10 @@ app.use("/design/", express.static(__dirname+"/design/"));
 app.use("/images/", express.static(__dirname+"/images/"));
 app.use("/app/", express.static(__dirname+"/lib/app/"));
 
+app.get("/favicon.png", function(req, res){
+	res.sendfile("favicon.png");
+});
+
 // View Pages
 app.get("/", function(req, res){
 	req.params['page'] = "index";

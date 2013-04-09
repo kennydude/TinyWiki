@@ -2,8 +2,7 @@
 @import url(codemirror/codemirror.css);
 
 body{
-	font-family: "Roboto Lt", "Roboto", "Ubuntu", "Arial", sans-serif;
-	font-weight: 200;
+	font-family: "Roboto", "Ubuntu", "Arial", sans-serif;
 	margin: 0px;
 }
 
