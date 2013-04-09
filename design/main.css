@@ -137,6 +137,7 @@ h1, h2, h3, h4{
 	border: 1px solid #CCC;
 	left: 30px;
 	width: 90px;
+	font-size: 12px;
 }
 .previewBox img{
 	max-width: 100%;

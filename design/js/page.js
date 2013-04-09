@@ -20,6 +20,10 @@ function insertText(txt){
 	EDITOR.replaceSelection(EDITOR.getSelection() + txt);
 }
 
+function showPB(txt, self){
+	$(".previewBox").css("top", $(self).offset().top).css("left", $(self).offset().left - $(".previewBox").width() - 10).html(txt);
+}
+
 $(document).ready(function(){
 	console.log("ok");
 	$("#theEditor").autogrow();
@@ -70,15 +74,21 @@ $(document).ready(function(){
 			var lines = doc.getValue("\n").split("\n");
 			var lno = 0;
 			lines.forEach(function(line){
-				if(line.indexOf("#") == 0){
+				if(line.indexOf("[app") == 0 && lno == 0){
+					var app = mkg("A");
+					app.data("app", line.substring("[app ".length, line.indexOf("]") ));
+					app.mouseover(function(){
+						showPB("This page will use the app " + $(this).data("app") + " to display it's contents", this);
+					});
+					EDITOR.setGutterMarker(lno, "editor_gutter", app.get(0));
+				} else if(line.indexOf("#") == 0){
 					EDITOR.setGutterMarker(lno, "editor_gutter", mkg("<strong>H</strong>").get(0));
 				} else if(line.indexOf("!") == 0){
 					var img = mkg("I");console.log(lno);
 					var ix = $(".cm-string", $(".CodeMirror-lines pre").get(lno+1)).html();
 					img.data("img", ix.substring(1, ix.length-1));
 					img.mouseover(function(){
-						console.log($(this).offset().top);
-						$(".previewBox").css("top", $(this).offset().top).css("left", $(this).offset().left - $(".previewBox").width() - 10).html("<img src='"+root+"images/"+$(this).data("img")+"' />");
+						showPB("<img src='"+root+"images/"+$(this).data("img")+"' />", this);
 					});
 					EDITOR.setGutterMarker(lno, "editor_gutter", img.get(0));
 				} else {
