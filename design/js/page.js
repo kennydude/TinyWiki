@@ -62,6 +62,7 @@ $(document).ready(function(){
 	
 	EDITOR = CodeMirror.fromTextArea($("#theEditor").get(0),{
 		lineWrapping : true,
+		disableSpellcheck : false,
 		gutters : [ "editor_gutter" ]
 	});
 	var mkg = function(m){

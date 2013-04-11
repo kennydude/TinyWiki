@@ -2,3 +2,7 @@ node_modules
 # My stuff
 pages/*
 images/*
+
+# App caches
+# TODO: Make these not required
+lib/app/mindmap/ex.png

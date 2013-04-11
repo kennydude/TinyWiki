@@ -39,6 +39,15 @@ for(method in twiki){
 	}
 }
 
+// App routing
+function app_router(req, res){
+	var route = req.params[0].split("/");
+	var app = require("./lib/app/" + route[0] + "/routes.js");
+	app[route[1]](req, res);
+}
+app.get( /app\/_\/(.*)/, app_router);
+app.post( /app\/_\/(.*)/, app_router);
+
 // Add Extra methods
 app.use("/design/", express.static(__dirname+"/design/"));
 app.use("/images/", express.static(__dirname+"/images/"));

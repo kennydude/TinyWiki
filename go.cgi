@@ -35,6 +35,8 @@ var req = {
 	"status" : function(status){
 		if(status == 404){
 			console.log("Status: 404 Not Found");
+		} else{
+			console.log("Status: " + status );
 		}
 	},
 	"end" : function(msg){
@@ -46,22 +48,35 @@ var req = {
 		console.log("Status: 302 OK");
 		console.log("Location: " + root + new_url);
 		console.log("");console.log("... redirecting");
+	},
+	"sendfile" : function(path){
+		console.log("Content-type: text/javascript");console.log("");
+		rstream = fs.createReadStream( path );
+		rstream.pipe(process.stdout);
 	}
 };
 
 function render(){
 	if(page.indexOf("app/") == 0){
+		if(page.indexOf("app/_/") == 0){
+			// Active app page
+			var appname = page.substring( "app/_/".length, page.indexOf("/", "app/_/".length));
+			var module = require("./lib/app/" + appname + "/routes.js" );
+			module[ page.substr( "app/_/".length + appname.length + 1 ) ](req, res);
+			return;
+		}
+
 		var file = page.substr( "app/".length);
 		var mime = {
-			".js" : "javascript",
-			".css" : "css",
-			".txt" : "plain"
+			".js" : "text/javascript",
+			".css" : "text/css",
+			".txt" : "text/plain",
+			".png" : "image/png"
 		};
-		console.log("Content-Type: text/" + mime[path.extname(file)]);
+		console.log("Content-Type: " + mime[path.extname(file)]);
 		console.log("");
-		fs.readFile( path.join("lib/app/", file ), function(err, contents){
-			console.log(contents.toString());
-		});	
+		var fstream = fs.createReadStream( path.join("lib/app/", file ) );
+		fstream.pipe(process.stdout);
 	} else if(app[page] != undefined){
 		app[page](req, res);
 	} else if(page.indexOf("edit/") == 0){

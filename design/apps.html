@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Apps</h1>
+<p>This page lists the apps installed on this server. If you wait a moment, we'll get their README's up!</p>
+{% for page in files %}
+	<h2>{{page}}</h2>
+	<p class="load" data-file="app/{{page}}/README.md"></p>
+{% endfor %}
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="{{root}}__marked_script"></script>
+<script type="text/javascript">
+	$(".load").each(function(){
+		var self = this;
+		$.get($(this).data("file"), function(data){
+			$(self).html(marked(data));
+		});
+	});
+</script>
+{% endblock %}
