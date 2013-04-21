@@ -1,0 +1,20 @@
+.wordlist, .meaning{
+	float: left;
+	box-sizing: border-box;
+	padding: 10px;
+}
+.wordlist{
+	width: 30%;
+}
+.meaning{
+	width: 70%;
+}
+.matchword{
+	background: #FFF;
+	border: 1px solid #CCC;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+.matchword.success{
+	background: green;
+}
